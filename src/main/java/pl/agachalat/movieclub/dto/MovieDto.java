@@ -1,27 +1,14 @@
-package pl.agachalat.movieclub.domain.movie;
+package pl.agachalat.movieclub.dto;
 
-import pl.agachalat.movieclub.domain.genre.Genre;
-
-import javax.persistence.*;
-
-@Entity
-public class Movie {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class MovieDto {
     private Long id;
     private String title;
     private String originalTitle;
     private Integer releaseYear;
-
-    @ManyToOne
-    @JoinColumn(name = "genre_id", referencedColumnName = "id")
-    private Genre genre;
+    private String genre;
     private boolean promoted;
 
-    public Movie() {
-
-    }
-    public Movie(Long id, String title, String originalTitle, Integer releaseYear, Genre genre, boolean promoted) {
+    public MovieDto(Long id, String title, String originalTitle, Integer releaseYear, String genre, boolean promoted) {
         this.id = id;
         this.title = title;
         this.originalTitle = originalTitle;
@@ -62,11 +49,11 @@ public class Movie {
         this.releaseYear = releaseYear;
     }
 
-    public Genre getGenre() {
+    public String getGenre() {
         return genre;
     }
 
-    public void setGenre(Genre genre) {
+    public void setGenre(String genre) {
         this.genre = genre;
     }
 
