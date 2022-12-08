@@ -5,6 +5,8 @@ import org.mapstruct.Mapping;
 import pl.agachalat.movieclub.domain.movie.Movie;
 import pl.agachalat.movieclub.dto.MovieDto;
 
+import java.util.List;
+
 @Mapper(componentModel = "spring")
 public interface MovieMapper {
 
@@ -13,4 +15,6 @@ public interface MovieMapper {
 
     @Mapping(source = "genre", target = "genre.name")
     Movie mapToMovie(MovieDto movieDto);
+
+    List<MovieDto> mapToMovieDtoList(List<Movie> movies);
 }
